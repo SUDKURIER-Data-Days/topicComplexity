@@ -1,0 +1,48 @@
+# Slides
+
+# 1) Lead Question: How complex are articles in different resorts?
+- Database of articles published on suedkurier.de
+- Aim: calculate complexity of articles to determine patterns within a resort, required language level
+
+# 2) A glimpse of the dataset
+    - Show pictures of cxense, point out determining factors we will use in our calculations
+
+# 3) Calculation
+- Idea:
+    - How to calculate complexity?
+    - Solution: complexity = uwc*/length of article
+        - uwc* = uwc - common words (show what we filtered)
+        - Uwc = unique word count
+    - Use complexity to determine language level requirements for resorts (how do we calculate that? —> Goethe-texts analysis)
+    - Comparison to Wiener Sachtext-Formel:
+        - Show formula
+- Show code for uwc, explain **briefly**
+    - Extract word count, articleID, body, kw_classification (tags/resorts) from expense.csv
+    - Calculate uwc* from body
+    - Calculate complexity from uwc*, word count
+    - Relate complexity with articleID and resort
+    - Aggregate by resort, calculate average
+- Show code for wiener, explain **briefly**
+    - Percentage of words with tone, three or more and six or more syllables is considered.  Other factor is average sentence length
+
+# 4) Visualizations
+- Graph 1 (wir/wiener)
+    - May help in determining the accessibility of articles within a resort (by language level)
+    - May show what we expected: medicine is more complex than sports
+- Graph 2 (wir/wiener)
+    - Some articles are very unique, but not very long
+    - May imply journalistic work/quality
+- Graph 3 (combined)
+    - Best correlations
+    - Where do we differ from wiener?
+    - —> transition to why?/potential errors
+
+# 5) Potential errors
+- For goethe/language level: too small sample size for texts of different levels
+- We do not take sentence length into account, which is quite important as a long sentence makes it more complex to read due to context
+- Wiener: does not ignore duplicate words (Donaueschingen)
+- Dataset had errors; we had to remove lines as they did not have associated resort tags
+
+# 6) areas of improvement/extension
+- Differentiate between sk/sk+
+- Differentiate between access device (mobile may be less complex, more quick info)
